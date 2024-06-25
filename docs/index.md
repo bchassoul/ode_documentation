@@ -4,49 +4,65 @@ This documentation provides an overview of numerical methods for solving ordinar
 
 ## Euler Method
 
-The Euler method is a first-order numerical procedure for solving ODEs. It is the simplest Runge-Kutta method. The formula for the Euler method is:
+The Euler method is a first-order numerical procedure for solving ODEs. It is the simplest Runge-Kutta method.
 
-    y_{n+1} = y_n + h f(t_n, y_n)
+The formula for the Euler method is:
+
+![Euler](images/euler.png)
+
+which is the same as:
+
+```
+y_next = y_current + h * f(t_current, y_current)
+```
 
 where:
 
-    y_{n+1} is the approximated solution at the next point.
-    y_n is the current value of the solution.
-    h is the step size.
-    f(t_n, y_n) is the derivative of y at t_n.
+- `y_next` is the approximated solution at the next point.
+- `y_current` is the current value of the solution.
+- `h` is the step size.
+- `f(t_current, y_current)` is the derivative of y at `t_current`.
 
 ## Second-order Runge-Kutta Method (RK2)
 
-The second-order Runge-Kutta method provides better accuracy than the Euler method. The formula for RK2 is:
+The second-order Runge-Kutta method provides better accuracy than the Euler method.
 
-    k_1 = h f(t_n, y_n)
-    k_2 = h f(t_n + \frac{h}{2}, y_n + \frac{k_1}{2})
-    y_{n+1} = y_n + k_2
+The formula for RK2 is:
+
+![RK2](images/rk2.png)
+
+which is the same as:
+
+```
+k1 = h * f(t_current, y_current)
+k2 = h * f(t_current + h/2, y_current + k1/2)
+y_next = y_current + k2
+```
 
 where:
 
-    k_1 and k_2 are intermediate increments.
-    y_{n+1} is the approximated solution at the next point.
+- `k1` and `k2` are intermediate increments.
+- `y_next` is the approximated solution at the next point.
 
 ## Fourth-order Runge-Kutta Method (RK4)
 
 The fourth-order Runge-Kutta method is one of the most widely used methods due to its balance between simplicity and accuracy. The formula for RK4 is:
 
-    k_1 = h f(t_n, y_n)
+![RK4](images/rk4.png)
 
-    k_2 = h f(t_n + \frac{h}{2}, y_n + \frac{k_1}{2})
+which is the same as:
 
-    k_3 = h f(t_n + \frac{h}{2}, y_n + \frac{k_2}{2})
-
-    k_4 = h f(t_n + h, y_n + k_3)
-
-    y_{n+1} = y_n + \frac{1}{6} (k_1 + 2k_2 + 2k_3 + k_4)
-
+```
+k1 = h * f(t_current, y_current)
+k2 = h * f(t_current + h/2, y_current + k1/2)
+k3 = h * f(t_current + h/2, y_current + k2/2)
+k4 = h * f(t_current + h, y_current + k3)
+y_next = y_current + (k1 + 2*k2 + 2*k3 + k4) / 6
+```
 where:
 
-    k_1, k_2, k_3, and k_4 are intermediate increments.
-
-    y_{n+1} is the approximated solution at the next point.
+- `k1`, `k2`, `k3`, and `k4` are intermediate increments.
+- `y_next` is the approximated solution at the next point.
 
 
 ---
