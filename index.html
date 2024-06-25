@@ -104,42 +104,48 @@
 <h1 id="numerical-methods-for-solving-odes">Numerical Methods for Solving ODEs</h1>
 <p>This documentation provides an overview of numerical methods for solving ordinary differential equations (ODEs) using Python. The methods covered include the Euler method, the second-order Runge-Kutta method (RK2), and the fourth-order Runge-Kutta method (RK4).</p>
 <h2 id="euler-method">Euler Method</h2>
-<p>The Euler method is a first-order numerical procedure for solving ODEs. It is the simplest Runge-Kutta method. The formula for the Euler method is:</p>
-<pre><code>y_{n+1} = y_n + h f(t_n, y_n)
-</code></pre>
+<p>The Euler method is a first-order numerical procedure for solving ODEs. It is the simplest Runge-Kutta method.</p>
+<p>The formula for the Euler method is:</p>
+<p><img alt="Euler" src="images/euler.png" /></p>
+<p>which is the same as:</p>
+<div class="highlight"><pre><span></span><code>y_next = y_current + h * f(t_current, y_current)
+</code></pre></div>
 <p>where:</p>
-<pre><code>y_{n+1} is the approximated solution at the next point.
-y_n is the current value of the solution.
-h is the step size.
-f(t_n, y_n) is the derivative of y at t_n.
-</code></pre>
+<ul>
+<li><code>y_next</code> is the approximated solution at the next point.</li>
+<li><code>y_current</code> is the current value of the solution.</li>
+<li><code>h</code> is the step size.</li>
+<li><code>f(t_current, y_current)</code> is the derivative of y at <code>t_current</code>.</li>
+</ul>
 <h2 id="second-order-runge-kutta-method-rk2">Second-order Runge-Kutta Method (RK2)</h2>
-<p>The second-order Runge-Kutta method provides better accuracy than the Euler method. The formula for RK2 is:</p>
-<pre><code>k_1 = h f(t_n, y_n)
-k_2 = h f(t_n + \frac{h}{2}, y_n + \frac{k_1}{2})
-y_{n+1} = y_n + k_2
-</code></pre>
+<p>The second-order Runge-Kutta method provides better accuracy than the Euler method.</p>
+<p>The formula for RK2 is:</p>
+<p><img alt="RK2" src="images/rk2.png" /></p>
+<p>which is the same as:</p>
+<div class="highlight"><pre><span></span><code>k1 = h * f(t_current, y_current)
+k2 = h * f(t_current + h/2, y_current + k1/2)
+y_next = y_current + k2
+</code></pre></div>
 <p>where:</p>
-<pre><code>k_1 and k_2 are intermediate increments.
-y_{n+1} is the approximated solution at the next point.
-</code></pre>
+<ul>
+<li><code>k1</code> and <code>k2</code> are intermediate increments.</li>
+<li><code>y_next</code> is the approximated solution at the next point.</li>
+</ul>
 <h2 id="fourth-order-runge-kutta-method-rk4">Fourth-order Runge-Kutta Method (RK4)</h2>
 <p>The fourth-order Runge-Kutta method is one of the most widely used methods due to its balance between simplicity and accuracy. The formula for RK4 is:</p>
-<pre><code>k_1 = h f(t_n, y_n)
-
-k_2 = h f(t_n + \frac{h}{2}, y_n + \frac{k_1}{2})
-
-k_3 = h f(t_n + \frac{h}{2}, y_n + \frac{k_2}{2})
-
-k_4 = h f(t_n + h, y_n + k_3)
-
-y_{n+1} = y_n + \frac{1}{6} (k_1 + 2k_2 + 2k_3 + k_4)
-</code></pre>
-<p>where:</p>
-<pre><code>k_1, k_2, k_3, and k_4 are intermediate increments.
-
-y_{n+1} is the approximated solution at the next point.
-</code></pre>
+<p><img alt="RK4" src="images/rk4.png" /></p>
+<p>which is the same as:</p>
+<p><div class="highlight"><pre><span></span><code>k1 = h * f(t_current, y_current)
+k2 = h * f(t_current + h/2, y_current + k1/2)
+k3 = h * f(t_current + h/2, y_current + k2/2)
+k4 = h * f(t_current + h, y_current + k3)
+y_next = y_current + (k1 + 2*k2 + 2*k3 + k4) / 6
+</code></pre></div>
+where:</p>
+<ul>
+<li><code>k1</code>, <code>k2</code>, <code>k3</code>, and <code>k4</code> are intermediate increments.</li>
+<li><code>y_next</code> is the approximated solution at the next point.</li>
+</ul>
 <hr />
 <h2 id="reference">Reference</h2>
 <p>For detailed documentation of the functions, visit the <a href="reference/">Reference Page</a>.</p>
@@ -157,6 +163,8 @@ y_{n+1} is the approximated solution at the next point.
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="js/base.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
@@ -225,5 +233,5 @@ y_{n+1} is the approximated solution at the next point.
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-06-25 16:52:25.476470+00:00
+Build Date UTC : 2024-06-25 17:23:51.110226+00:00
 -->
