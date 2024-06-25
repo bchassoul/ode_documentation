@@ -1,0 +1,10 @@
+# Ignorar el directorio generado por MkDocs
+site/
+
+# Ignorar archivos de Python compilados
+__pycache__/
+*.pyc
+
+# Ignorar archivos de configuración del entorno
+.env
+venv/
