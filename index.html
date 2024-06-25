@@ -38,7 +38,7 @@
                                 <a href="." class="nav-link active" aria-current="page">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="ode/" class="nav-link">ODE Module</a>
+                                <a href="reference/" class="nav-link">Reference</a>
                             </li>
                         </ul>
 
@@ -54,7 +54,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="ode/" class="nav-link">
+                                <a rel="next" href="reference/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -76,9 +76,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#numerical-methods-for-odes" class="nav-link">Numerical Methods for ODEs</a>
+            <li class="nav-item" data-bs-level="1"><a href="#numerical-methods-for-solving-odes" class="nav-link">Numerical Methods for Solving ODEs</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#ode-module" class="nav-link">ODE Module</a>
+            <li class="nav-item" data-bs-level="2"><a href="#euler-method" class="nav-link">Euler Method</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#second-order-runge-kutta-method-rk2" class="nav-link">Second-order Runge-Kutta Method (RK2)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#fourth-order-runge-kutta-method-rk4" class="nav-link">Fourth-order Runge-Kutta Method (RK4)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#reference" class="nav-link">Reference</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -89,15 +101,49 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="numerical-methods-for-odes">Numerical Methods for ODEs</h1>
-<p>This documentation provides an overview of numerical methods for solving ordinary differential equations (ODEs) using Python.
-The methods covered include the Euler method, second-order Runge-Kutta (RK2), and fourth-order Runge-Kutta (RK4).</p>
-<h2 id="ode-module">ODE Module</h2>
-<ul>
-<li><a href="ode/#euler">Euler Method</a></li>
-<li><a href="ode/#second-order-runge-kutta-rk2">Second-order Runge-Kutta (RK2)</a></li>
-<li><a href="ode/#fourth-order-runge-kutta-rk4">Fourth-order Runge-Kutta (RK4)</a></li>
-</ul></div>
+<h1 id="numerical-methods-for-solving-odes">Numerical Methods for Solving ODEs</h1>
+<p>This documentation provides an overview of numerical methods for solving ordinary differential equations (ODEs) using Python. The methods covered include the Euler method, the second-order Runge-Kutta method (RK2), and the fourth-order Runge-Kutta method (RK4).</p>
+<h2 id="euler-method">Euler Method</h2>
+<p>The Euler method is a first-order numerical procedure for solving ODEs. It is the simplest Runge-Kutta method. The formula for the Euler method is:</p>
+<pre><code>y_{n+1} = y_n + h f(t_n, y_n)
+</code></pre>
+<p>where:</p>
+<pre><code>y_{n+1} is the approximated solution at the next point.
+y_n is the current value of the solution.
+h is the step size.
+f(t_n, y_n) is the derivative of y at t_n.
+</code></pre>
+<h2 id="second-order-runge-kutta-method-rk2">Second-order Runge-Kutta Method (RK2)</h2>
+<p>The second-order Runge-Kutta method provides better accuracy than the Euler method. The formula for RK2 is:</p>
+<pre><code>k_1 = h f(t_n, y_n)
+k_2 = h f(t_n + \frac{h}{2}, y_n + \frac{k_1}{2})
+y_{n+1} = y_n + k_2
+</code></pre>
+<p>where:</p>
+<pre><code>k_1 and k_2 are intermediate increments.
+y_{n+1} is the approximated solution at the next point.
+</code></pre>
+<h2 id="fourth-order-runge-kutta-method-rk4">Fourth-order Runge-Kutta Method (RK4)</h2>
+<p>The fourth-order Runge-Kutta method is one of the most widely used methods due to its balance between simplicity and accuracy. The formula for RK4 is:</p>
+<pre><code>k_1 = h f(t_n, y_n)
+
+k_2 = h f(t_n + \frac{h}{2}, y_n + \frac{k_1}{2})
+
+k_3 = h f(t_n + \frac{h}{2}, y_n + \frac{k_2}{2})
+
+k_4 = h f(t_n + h, y_n + k_3)
+
+y_{n+1} = y_n + \frac{1}{6} (k_1 + 2k_2 + 2k_3 + k_4)
+</code></pre>
+<p>where:</p>
+<pre><code>k_1, k_2, k_3, and k_4 are intermediate increments.
+
+y_{n+1} is the approximated solution at the next point.
+</code></pre>
+<hr />
+<h2 id="reference">Reference</h2>
+<p>For detailed documentation of the functions, visit the <a href="reference/">Reference Page</a>.</p>
+<p>These numerical methods are fundamental for solving ODEs and are widely used in various scientific and engineering applications.</p></div>
             </div>
         </div>
 
@@ -179,5 +225,5 @@ The methods covered include the Euler method, second-order Runge-Kutta (RK2), an
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-06-25 16:31:59.349845+00:00
+Build Date UTC : 2024-06-25 16:52:25.476470+00:00
 -->
