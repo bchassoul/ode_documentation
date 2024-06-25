@@ -1,8 +1,14 @@
 site_name: ODE Documentation
 
 nav:
-    - Home: index.md
-    - Reference: reference.md
+  - Home: index.md
+  - "ODE Module": ode.md
 
 markdown_extensions:
-    - pymdownx.superfences
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - include-markdown:
+      encoding: utf-8
+      preserve_includer_indent: true
