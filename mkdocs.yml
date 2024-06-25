@@ -2,7 +2,7 @@ site_name: ODE Documentation
 
 nav:
   - Home: index.md
-  - "ODE Module": ode.md
+  - Reference: reference.md
 
 markdown_extensions:
   - pymdownx.superfences
